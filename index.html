@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador de Informática - CEJA Villa Quinteros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Pantalla de carga -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <h1>¡Bienvenidos!</h1>
+            <div class="loading-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo-container">
+            <img src="assets/LOGO.png" alt="Ministerio de Educación de Tucumán" class="ministerio-logo">
+            <div class="logo">CEJA Villa Quinteros</div>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#contenidos">Contenidos</a></li>
+                <li><a href="#word">Word</a></li>
+                <li><a href="#excel">Excel</a></li>
+                <li><a href="#powerpoint">PowerPoint</a></li>
+                <li><a href="#trabajamos">Cómo trabajamos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#preinscripcion">Preinscripción</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <!-- Carrusel de imágenes -->
+        <div class="hero-carousel">
+            <div class="carousel-track">
+                <div class="carousel-slide active">
+                    <img src="assets/carrusel1.jpeg" alt="Estudiantes en el laboratorio de informática" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230f2027%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Laboratorio de Informática</text></svg>'">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/carrusel2.jpeg" alt="Clase práctica de computación" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%233a0f0f%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Clases Prácticas</text></svg>'">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/carrusel3.jpeg" alt="Profesor explicando conceptos" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%235c1a1a%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Atención Personalizada</text></svg>'">
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/carrusel4.jpeg" alt="Proyectos de estudiantes" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%238B0000%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Proyectos Estudiantiles</text></svg>'">
+                </div>
+            </div>
+            <!-- Controles del carrusel -->
+            <div class="carousel-controls">
+                <button class="carousel-prev">‹</button>
+                <button class="carousel-next">›</button>
+            </div>
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+            </div>
+        </div>
+
+        <div class="floating-particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Operador de Informática</h1>
+            <p>Para la Administración y Gestión</p>
+            <a href="#contenidos" class="cta-button">Conocer más</a>
+        </div>
+    </section>
+
+    <!-- Resto de las secciones se mantienen igual -->
+    <!-- Contenidos -->
+    <section id="contenidos">
+        <div class="floating-particles" id="particles2"></div>
+        <h2 class="section-title">🧩 Contenidos del Curso</h2>
+        <div class="content-grid">
+            <div class="card">
+                <div class="app-logo-small">
+                    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#8B0000" d="M88 8H56v80h32c4.42 0 8-3.58 8-8V16c0-4.42-3.58-8-8-8z"/>
+                        <path fill="#6B0000" d="M56 8H24L8 24v48l16 16h32V8z"/>
+                        <path fill="#5c1a1a" d="M56 48H8v40l16 16h32V48z"/>
+                        <path fill="#fff" d="M42.38 40.95l-7.83 25.1h-6.48l-5.66-18.54-5.83 18.54h-6.46l-7.73-25.1h6.33l5.03 19.09 5.82-19.09h5.72l5.52 19.21 5.3-19.21h6.27z"/>
+                    </svg>
+                </div>
+                <h3>Procesadores de Texto</h3>
+                <p>Domina Microsoft Word y crea documentos profesionales con contenido multimedia.</p>
+            </div>
+            <div class="card">
+                <div class="app-logo-small">
+                    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#8B0000" d="M88 8H56v80h32c4.42 0 8-3.58 8-8V16c0-4.42-3.58-8-8-8z"/>
+                        <path fill="#6B0000" d="M56 8H24L8 24v48l16 16h32V8z"/>
+                        <path fill="#5c1a1a" d="M56 48H8v40l16 16h32V48z"/>
+                        <path fill="#fff" d="M36.48 66.05l-8.89-12.54-8.52 12.54h-7.7l12.15-17.29L11.98 31.3h7.82l8.13 11.76 8.24-11.76h7.53L31.62 48.73l12.56 17.32h-7.7z"/>
+                    </svg>
+                </div>
+                <h3>Planillas de Cálculo</h3>
+                <p>Aprende Excel para realizar operaciones financieras, estadísticas y automatizaciones.</p>
+            </div>
+            <div class="card">
+                <div class="app-logo-small">
+                    <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#8B0000" d="M88 8H56v80h32c4.42 0 8-3.58 8-8V16c0-4.42-3.58-8-8-8z"/>
+                        <path fill="#6B0000" d="M56 8H24L8 24v48l16 16h32V8z"/>
+                        <path fill="#5c1a1a" d="M56 48H8v40l16 16h32V48z"/>
+                        <path fill="#fff" d="M28.69 31.3h-9.37v33.75h6.35V53.39h3.02c7.36 0 11.97-4.32 11.97-11.05 0-6.72-4.61-11.04-11.97-11.04zm-.31 16.26h-2.71V37.13h2.71c4.04 0 6.2 2.02 6.2 5.22 0 3.19-2.16 5.21-6.2 5.21z"/>
+                    </svg>
+                </div>
+                <h3>Software de Presentación</h3>
+                <p>Crea presentaciones impactantes con PowerPoint y sus herramientas multimedia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Word -->
+    <section id="word">
+        <div class="floating-particles" id="particles3"></div>
+        <h2 class="section-title">Microsoft Word</h2>
+        <div class="app-logo">
+            <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#8B0000" d="M88 8H56v80h32c4.42 0 8-3.58 8-8V16c0-4.42-3.58-8-8-8z"/>
+                <path fill="#6B0000" d="M56 8H24L8 24v48l16 16h32V8z"/>
+                <path fill="#5c1a1a" d="M56 48H8v40l16 16h32V48z"/>
+                <path fill="#fff" d="M42.38 40.95l-7.83 25.1h-6.48l-5.66-18.54-5.83 18.54h-6.46l-7.73-25.1h6.33l5.03 19.09 5.82-19.09h5.72l5.52 19.21 5.3-19.21h6.27z"/>
+            </svg>
+        </div>
+        <div class="info-box">
+            <p>Esta aplicación indispensable dentro de los Software de Ofimática permite utilizar una enorme versatilidad de herramientas para la creación y edición de documentos de texto, permitiendo además la adición de contenido multimedia para personalizar y enfatizar el texto.</p>
+        </div>
+
+        <div class="video-container">
+            <h3>📹 Video Demostrativo - Microsoft Word</h3>
+            <div class="video-wrapper">
+                <video controls poster="assets/word-poster.jpg">
+                    <source src="assets/word-video.mp4" type="video/mp4">
+                    <source src="assets/word-video.webm" type="video/webm">
+                    <div class="video-placeholder">
+                        <i>🎬</i>
+                        <p>Tu navegador no soporta el elemento video</p>
+                        <p>Descarga el video <a href="assets/word-video.mp4" download>aquí</a></p>
+                    </div>
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excel -->
+    <section id="excel">
+        <div class="floating-particles" id="particles4"></div>
+        <h2 class="section-title">Microsoft Excel</h2>
+        <div class="app-logo">
+            <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#8B0000" d="M88 8H56v80h32c4.42 0 8-3.58 8-8V16c0-4.42-3.58-8-8-8z"/>
+                <path fill="#6B0000" d="M56 8H24L8 24v48l16 16h32V8z"/>
+                <path fill="#5c1a1a" d="M56 48H8v40l16 16h32V48z"/>
+                <path fill="#fff" d="M36.48 66.05l-8.89-12.54-8.52 12.54h-7.7l12.15-17.29L11.98 31.3h7.82l8.13 11.76 8.24-11.76h7.53L31.62 48.73l12.56 17.32h-7.7z"/>
+            </svg>
+        </div>
+        <div class="info-box">
+            <p>Este potente programa nos permite crear planillas de cálculos para realizar de forma automática seguimientos, estadísticas, operaciones financieras, matemáticas, lógicas, etc., que van desde los cálculos más sencillos, hasta los más complejos.</p>
+        </div>
+
+
+        <div class="video-container">
+            <h3>📹 Video Demostrativo - Microsoft Excel</h3>
+            <div class="video-wrapper">
+                <video controls poster="assets/excel-poster.jpg">
+                    <source src="assets/excel.mp4" type="video/mp4">
+                    <source src="assets/excel.mp4" type="video/webm">
+                    <div class="video-placeholder">
+                        <i>🎬</i>
+                        <p>Tu navegador no soporta el elemento video</p>
+                        <p>Descarga el video <a href="assets/excel-video.mp4" download>aquí</a></p>
+                    </div>
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- PowerPoint -->
+    <section id="powerpoint">
+        <div class="floating-particles" id="particles5"></div>
+        <h2 class="section-title">Microsoft PowerPoint</h2>
+        <div class="app-logo">
+            <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#8B0000" d="M88 8H56v80h32c4.42 0 8-3.58 8-8V16c0-4.42-3.58-8-8-8z"/>
+                <path fill="#6B0000" d="M56 8H24L8 24v48l16 16h32V8z"/>
+                <path fill="#5c1a1a" d="M56 48H8v40l16 16h32V48z"/>
+                <path fill="#fff" d="M28.69 31.3h-9.37v33.75h6.35V53.39h3.02c7.36 0 11.97-4.32 11.97-11.05 0-6.72-4.61-11.04-11.97-11.04zm-.31 16.26h-2.71V37.13h2.71c4.04 0 6.2 2.02 6.2 5.22 0 3.19-2.16 5.21-6.2 5.21z"/>
+            </svg>
+        </div>
+        <div class="info-box">
+            <p>Herramienta por excelencia para la creación de Presentaciones Electrónicas, con su amplio abanico de herramientas multimedia, efectos de animación, transición, etc., permite crear diapositivas con gran impacto visual para diversas situaciones.</p>
+        </div>
+
+        <div class="video-container">
+            <h3>📹 Video Demostrativo - Microsoft PowerPoint</h3>
+            <div class="video-wrapper">
+                <video controls poster="assets/powerpoint-poster.jpg">
+                    <source src="assets/power-video.mp4" type="video/mp4">
+                    <source src="assets/powerpoint-video.webm" type="video/webm">
+                    <div class="video-placeholder">
+                        <i>🎬</i>
+                        <p>Tu navegador no soporta el elemento video</p>
+                        <p>Descarga el video <a href="assets/powerpoint-video.mp4" download>aquí</a></p>
+                    </div>
+                </video>
+            </div>
+    </section>
+
+    <!-- Cómo trabajamos -->
+    <section id="trabajamos">
+        <div class="floating-particles" id="particles6"></div>
+        <h2 class="section-title">📸 Cómo trabajamos</h2>
+        <div class="info-box">
+            <p>En CEJA Villa Quinteros nos enfocamos en el aprendizaje práctico y personalizado. Nuestro método de enseñanza combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales.</p>
+        </div>
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/carrusel4.jpeg" alt="Estudiantes trabajando en clase" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%238B0000%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2218%22>Foto 1</text></svg>'">
+                    <div class="gallery-caption">Clases prácticas en nuestro laboratorio</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/carrusel3.jpeg" alt="Profesor explicando conceptos" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%236B0000%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2218%22>Foto 2</text></svg>'">
+                    <div class="gallery-caption">Atención personalizada del docente</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/carrusel1.jpeg" alt="Estudiantes en grupo de trabajo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%235c1a1a%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2218%22>Foto 3</text></svg>'">
+                    <div class="gallery-caption">Trabajo colaborativo entre estudiantes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="floating-particles" id="particles7"></div>
+        <h2 class="section-title">📍 Información del Centro</h2>
+        <div class="info-box">
+            <h3>C.E.J.A Villa Quinteros</h3>
+            <p>📍 Villa Quinteros, Tucumán, Argentina</p>
+            <p>📅 Curso 2025</p>
+            <p>¡Te esperamos para que formes parte de nuestra comunidad educativa!</p>
+        </div>
+    </section>
+
+    <!-- Preinscripción 2026 -->
+    <section id="preinscripcion">
+        <div class="floating-particles" id="particles8"></div>
+        <h2 class="section-title">📝 Preinscripción 2026</h2>
+        <div class="info-box">
+            <h3>¡CUPOS LIMITADOS!</h3>
+            <p>No te quedes sin tu lugar para aprender. Completa el formulario para preinscribirte.</p>
+        </div>
+        <div class="form-container">
+            <div id="form-alert"></div>
+            <form id="preinscripcion-form" action="https://formsubmit.co/alumnocejainfo@gmail.com" method="POST">
+                <!-- Campos ocultos de FormSubmit -->
+                <input type="hidden" name="_subject" value="Nueva Preinscripción 2026 - CEJA Villa Quinteros">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="#preinscripcion">
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingresa tu nombre completo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="ejemplo@correo.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Ingresa tu número de teléfono" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dni">DNI</label>
+                    <input type="text" id="dni" name="dni" class="form-control" placeholder="Número de documento" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="interes">¿Por qué estás interesado en el curso?</label>
+                    <textarea id="interes" name="interes" class="form-control" rows="4" placeholder="Cuéntanos tus motivaciones..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submit-btn">Enviar Preinscripción</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; TODOS LOS DERECHOS RESERVADOS - ELIAS SAID</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
