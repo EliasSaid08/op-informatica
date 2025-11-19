@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Pantalla de carga -->
     <div class="loading-screen">
         <div class="loading-content">
             <h1>¡Bienvenidos!</h1>
@@ -15,7 +14,6 @@
         </div>
     </div>
 
-    <!-- Header -->
     <header id="header">
         <div class="logo-container">
             <img src="assets/LOGO.png" alt="Ministerio de Educación de Tucumán" class="ministerio-logo">
@@ -40,9 +38,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="inicio">
-        <!-- Carrusel de imágenes -->
         <div class="hero-carousel">
             <div class="carousel-track">
                 <div class="carousel-slide active">
@@ -58,8 +54,6 @@
                     <img src="assets/carrusel4.jpeg" alt="Proyectos de estudiantes" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22 viewBox=%220 0 800 600%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%238B0000%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Proyectos Estudiantiles</text></svg>'">
                 </div>
             </div>
-            <!-- Controles del carrusel -->
-            <!-- Indicadores -->
             <div class="carousel-indicators">
                 <span class="indicator active" data-slide="0"></span>
                 <span class="indicator" data-slide="1"></span>
@@ -76,8 +70,6 @@
         </div>
     </section>
 
-    <!-- Resto de las secciones se mantienen igual -->
-    <!-- Contenidos -->
     <section id="contenidos">
         <div class="floating-particles" id="particles2"></div>
         <h2 class="section-title">🧩 Contenidos del Curso</h2>
@@ -121,7 +113,6 @@
         </div>
     </section>
 
-    <!-- Word -->
     <section id="word">
         <div class="floating-particles" id="particles3"></div>
         <h2 class="section-title">Microsoft Word</h2>
@@ -140,20 +131,11 @@
         <div class="video-container">
             <h3>📹 Video Demostrativo - Microsoft Word</h3>
             <div class="video-wrapper">
-                <video controls poster="assets/word-poster.jpg">
-                    <source src="assets/word-video.mp4" type="video/mp4">
-                    <source src="assets/word-video.webm" type="video/webm">
-                    <div class="video-placeholder">
-                        <i>🎬</i>
-                        <p>Tu navegador no soporta el elemento video</p>
-                        <p>Descarga el video <a href="assets/word-video.mp4" download>aquí</a></p>
-                    </div>
-                </video>
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/8fTHNCNsEwY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Excel -->
     <section id="excel">
         <div class="floating-particles" id="particles4"></div>
         <h2 class="section-title">Microsoft Excel</h2>
@@ -169,24 +151,14 @@
             <p>Este potente programa nos permite crear planillas de cálculos para realizar de forma automática seguimientos, estadísticas, operaciones financieras, matemáticas, lógicas, etc., que van desde los cálculos más sencillos, hasta los más complejos.</p>
         </div>
 
-
         <div class="video-container">
             <h3>📹 Video Demostrativo - Microsoft Excel</h3>
             <div class="video-wrapper">
-                <video controls poster="assets/excel-poster.jpg">
-                    <source src="assets/excel.mp4" type="video/mp4">
-                    <source src="assets/excel.mp4" type="video/webm">
-                    <div class="video-placeholder">
-                        <i>🎬</i>
-                        <p>Tu navegador no soporta el elemento video</p>
-                        <p>Descarga el video <a href="assets/excel-video.mp4" download>aquí</a></p>
-                    </div>
-                </video>
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/w64sMXH7hXE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <!-- PowerPoint -->
     <section id="powerpoint">
         <div class="floating-particles" id="particles5"></div>
         <h2 class="section-title">Microsoft PowerPoint</h2>
@@ -205,19 +177,11 @@
         <div class="video-container">
             <h3>📹 Video Demostrativo - Microsoft PowerPoint</h3>
             <div class="video-wrapper">
-                <video controls poster="assets/powerpoint-poster.jpg">
-                    <source src="assets/power-video.mp4" type="video/mp4">
-                    <source src="assets/powerpoint-video.webm" type="video/webm">
-                    <div class="video-placeholder">
-                        <i>🎬</i>
-                        <p>Tu navegador no soporta el elemento video</p>
-                        <p>Descarga el video <a href="assets/powerpoint-video.mp4" download>aquí</a></p>
-                    </div>
-                </video>
+                <iframe width="100%" height="400" src="https://youtu.be/t-_QGNGum9I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+        </div>
     </section>
 
-    <!-- Cómo trabajamos -->
     <section id="trabajamos">
         <div class="floating-particles" id="particles6"></div>
         <h2 class="section-title">📸 Cómo trabajamos</h2>
@@ -228,7 +192,7 @@
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="assets/carrusel4.jpeg" alt="Estudiantes trabajando en clase" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%238B0000%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2218%22>Foto 1</text></svg>'">
-                    <div class="gallery-caption">Clases prácticas</div>
+                    <div class="gallery-caption">Clases prácticas en nuestro laboratorio</div>
                 </div>
                 <div class="gallery-item">
                     <img src="assets/carrusel3.jpeg" alt="Profesor explicando conceptos" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22 viewBox=%220 0 300 200%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%236B0000%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2218%22>Foto 2</text></svg>'">
@@ -242,7 +206,6 @@
         </div>
     </section>
 
-    <!-- Contacto -->
     <section id="contacto">
         <div class="floating-particles" id="particles7"></div>
         <h2 class="section-title">📍 Información del Centro</h2>
@@ -254,7 +217,6 @@
         </div>
     </section>
 
-    <!-- Preinscripción 2026 -->
     <section id="preinscripcion">
         <div class="floating-particles" id="particles8"></div>
         <h2 class="section-title">📝 Preinscripción 2026</h2>
@@ -265,7 +227,6 @@
         <div class="form-container">
             <div id="form-alert"></div>
             <form id="preinscripcion-form" action="https://formsubmit.co/alumnocejainfo@gmail.com" method="POST">
-                <!-- Campos ocultos de FormSubmit -->
                 <input type="hidden" name="_subject" value="Nueva Preinscripción 2026 - CEJA Villa Quinteros">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
@@ -301,7 +262,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; TODOS LOS DERECHOS RESERVADOS - ELIAS SAID</p>
     </footer>
