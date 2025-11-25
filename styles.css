@@ -1711,3 +1711,151 @@ body.loaded * {
 body.fully-loaded * {
     transition: all var(--transition-fast);
 }
+
+
+
+/* Fondos para las nuevas secciones con colores distintivos */
+#windows {
+    background: linear-gradient(135deg, #0f2027 0%, #1a3a5f 50%, #0078D4 100%);
+    color: white;
+}
+
+#word {
+    background: linear-gradient(135deg, #0f2027 0%, #1a3a5f 50%, #2B579A 100%);
+    color: white;
+}
+
+#excel {
+    background: linear-gradient(135deg, #0f2027 0%, #1a3a5f 50%, #217346 100%);
+    color: white;
+}
+
+#powerpoint {
+    background: linear-gradient(135deg, #0f2027 0%, #1a3a5f 50%, #D24726 100%);
+    color: white;
+}
+
+#internet {
+    background: linear-gradient(135deg, #1a3a5f 0%, #0078D4 50%, #005a9e 100%);
+    color: white;
+}
+
+#mas-info {
+    background: linear-gradient(135deg, #005a9e 0%, #0078D4 50%, #1a3a5f 100%);
+    color: white;
+}
+
+/* Estilos para la sección de imagen (en lugar de video) */
+.image-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid rgba(139, 0, 0, 0.3);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: all var(--transition-slow);
+}
+
+section.in-view .image-container {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.image-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 
+        var(--neon-glow-1),
+        var(--neon-glow-2),
+        var(--neon-glow-3);
+    font-weight: bold;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform var(--transition-medium);
+}
+
+.image-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.4),
+        0 0 20px rgba(139, 0, 0, 0.2);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Estilos para la sección de contacto adicional */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.contact-item {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all var(--transition-medium);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-5px);
+    border-color: var(--neon-red);
+    box-shadow: 0 10px 25px rgba(139, 0, 0, 0.2);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    transition: transform var(--transition-fast);
+}
+
+.contact-item:hover .contact-icon {
+    transform: scale(1.2);
+}
+
+.contact-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 
+        var(--neon-glow-1),
+        var(--neon-glow-2);
+}
+
+.contact-item p {
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.contact-note {
+    font-style: italic;
+    margin-top: 30px;
+    padding: 15px;
+    background: rgba(139, 0, 0, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid var(--neon-red);
+}

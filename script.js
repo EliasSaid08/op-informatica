@@ -241,7 +241,6 @@ function createParticles(containerId, count) {
     }
 }
 
-// Inicializar partículas en cada sección
 function initParticles() {
     createParticles('particles', 15);
     createParticles('particles2', 10);
@@ -251,6 +250,10 @@ function initParticles() {
     createParticles('particles6', 10);
     createParticles('particles7', 10);
     createParticles('particles8', 10);
+    // Agregar las nuevas partículas
+    createParticles('particles-windows', 10);
+    createParticles('particles-internet', 10);
+    createParticles('particles-info', 10);
 }
 
 // Observer para animaciones al scroll
