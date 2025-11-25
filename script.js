@@ -296,83 +296,91 @@ function initScrollAnimations() {
     });
 }
 
-// Manejo del formulario de preinscripción con FormSubmit
+// Manejo del formulario de preinscripción con PHP
 function initForm() {
     const form = document.getElementById('preinscripcion-form');
     if (!form) return;
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevenir el envío normal del formulario
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
         
         const submitBtn = document.getElementById('submit-btn');
         const formAlert = document.getElementById('form-alert');
         
+        console.log('🔄 Iniciando envío del formulario...');
+        
         // Validar formulario
         if (!validateForm()) {
+            showAlert('❌ Por favor completa todos los campos requeridos correctamente', 'error', formAlert);
             return;
         }
         
         // Mostrar estado de carga
         submitBtn.disabled = true;
-        submitBtn.classList.add('loading-btn');
-        submitBtn.textContent = '';
+        submitBtn.textContent = 'Enviando...';
+        showAlert('⏳ Enviando formulario...', 'loading', formAlert);
         
-        // Limpiar alertas anteriores
-        formAlert.innerHTML = '<div class="alert alert-success">⏳ Enviando formulario...</div>';
-        formAlert.querySelector('.alert').classList.add('show');
-        
-        // Crear FormData del formulario
-        const formData = new FormData(this);
-        
-        // Enviar formulario usando Fetch API
-        fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                // Mostrar mensaje de éxito
-                formAlert.innerHTML = `
-                    <div class="alert alert-success show">
-                        ✅ ¡Preinscripción enviada con éxito! Te contactaremos pronto.
-                    </div>
-                `;
-                
-                // Limpiar formulario
-                this.reset();
-                
-                // Ocultar mensaje después de 5 segundos
-                setTimeout(() => {
-                    formAlert.innerHTML = '';
-                }, 5000);
-                
-            } else {
-                throw new Error('Error en el servidor');
-            }
-        })
-        .catch(error => {
-            // Mostrar mensaje de error
-            formAlert.innerHTML = `
-                <div class="alert alert-error show">
-                    ❌ Error al enviar el formulario. Por favor, intenta nuevamente.
-                </div>
-            `;
-            console.error('Error:', error);
+        try {
+            // Crear FormData
+            const formData = new FormData(this);
             
-            // Ocultar mensaje después de 5 segundos
-            setTimeout(() => {
-                formAlert.innerHTML = '';
-            }, 5000);
-        })
-        .finally(() => {
+            console.log('📤 Enviando datos a PHP...', {
+                action: this.action,
+                data: Object.fromEntries(formData)
+            });
+            
+            // Enviar con timeout
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 15000);
+            
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                signal: controller.signal
+            });
+            
+            clearTimeout(timeoutId);
+            
+            console.log('📨 Respuesta recibida:', {
+                status: response.status,
+                ok: response.ok
+            });
+            
+            if (response.ok) {
+                const result = await response.text();
+                if (result.trim() === 'OK') {
+                    showAlert('✅ ¡Preinscripción enviada con éxito! Te contactaremos pronto.', 'success', formAlert);
+                    form.reset();
+                    console.log('✅ Formulario enviado correctamente');
+                    
+                    // Scroll a la sección de preinscripción
+                    document.getElementById('preinscripcion').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                } else {
+                    throw new Error('Error en el servidor: ' + result);
+                }
+            } else {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+            
+        } catch (error) {
+            console.error('❌ Error enviando formulario:', error);
+            
+            if (error.name === 'AbortError') {
+                showAlert('⏰ Tiempo de espera agotado. Por favor, intenta nuevamente.', 'error', formAlert);
+            } else if (error.message.includes('Failed to fetch')) {
+                showAlert('🌐 Error de conexión. Verifica tu internet e intenta nuevamente.', 'error', formAlert);
+            } else {
+                showAlert('❌ Error al enviar. Por favor, contacta al +54 3863 51-0028', 'error', formAlert);
+            }
+            
+        } finally {
             // Restaurar botón
             submitBtn.disabled = false;
-            submitBtn.classList.remove('loading-btn');
             submitBtn.textContent = 'Enviar Preinscripción';
-        });
+        }
     });
 
     // Validación en tiempo real
@@ -391,12 +399,14 @@ function initForm() {
     function validateField(field) {
         const value = field.value.trim();
         
+        // Validar campo requerido
         if (field.hasAttribute('required') && value === '') {
             field.classList.add('error');
             field.style.borderColor = '#dc3545';
             return false;
         }
         
+        // Validar email
         if (field.type === 'email' && value !== '') {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(value)) {
@@ -406,6 +416,34 @@ function initForm() {
             }
         }
         
+        // Validar teléfono (formato más flexible)
+        if (field.type === 'tel' && value !== '') {
+            const phoneRegex = /^[\d\s+\-()]{7,20}$/;
+            if (!phoneRegex.test(value.replace(/\s/g, ''))) {
+                field.classList.add('error');
+                field.style.borderColor = '#dc3545';
+                return false;
+            }
+        }
+        
+        // Validar DNI (solo números, 7-8 dígitos)
+        if (field.id === 'dni' && value !== '') {
+            const dniRegex = /^\d{7,8}$/;
+            if (!dniRegex.test(value)) {
+                field.classList.add('error');
+                field.style.borderColor = '#dc3545';
+                return false;
+            }
+        }
+        
+        // Validar select
+        if (field.tagName === 'SELECT' && field.hasAttribute('required') && value === '') {
+            field.classList.add('error');
+            field.style.borderColor = '#dc3545';
+            return false;
+        }
+        
+        // Campo válido
         field.classList.remove('error');
         field.style.borderColor = 'rgba(255,255,255,0.2)';
         return true;
@@ -414,16 +452,52 @@ function initForm() {
     function validateForm() {
         let isValid = true;
         const fields = form.querySelectorAll('.form-control[required]');
+        let firstErrorField = null;
         
         fields.forEach(field => {
             if (!validateField(field)) {
                 isValid = false;
+                if (!firstErrorField) {
+                    firstErrorField = field;
+                }
             }
         });
         
+        if (firstErrorField) {
+            firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstErrorField.focus();
+        }
+        
         return isValid;
     }
+
+    function showAlert(message, type, container) {
+        if (!container) return;
+        
+        const alertClass = type === 'success' ? 'alert-success' : 
+                          type === 'error' ? 'alert-error' : 'alert-loading';
+        
+        container.innerHTML = `
+            <div class="alert ${alertClass} show">
+                ${message}
+            </div>
+        `;
+        
+        // Auto-ocultar después de 8 segundos (excepto para loading)
+        if (type !== 'loading') {
+            setTimeout(() => {
+                const alert = container.querySelector('.alert');
+                if (alert) {
+                    alert.style.opacity = '0';
+                    setTimeout(() => {
+                        container.innerHTML = '';
+                    }, 500);
+                }
+            }, 8000);
+        }
+    }
 }
+
 
 // Galería lightbox
 function initGalleryLightbox() {
