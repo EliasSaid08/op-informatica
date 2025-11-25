@@ -296,7 +296,7 @@ function initScrollAnimations() {
     });
 }
 
-// Manejo del formulario de preinscripción con PHP
+// Manejo del formulario de preinscripción - VERSIÓN MEJORADA
 function initForm() {
     const form = document.getElementById('preinscripcion-form');
     if (!form) return;
@@ -324,18 +324,25 @@ function initForm() {
             // Crear FormData
             const formData = new FormData(this);
             
-            console.log('📤 Enviando datos a PHP...', {
+            // Agregar timestamp para debugging
+            formData.append('_timestamp', new Date().toISOString());
+            formData.append('_source', 'CEJA Villa Quinteros Website');
+            
+            console.log('📤 Enviando datos a FormSubmit...', {
                 action: this.action,
                 data: Object.fromEntries(formData)
             });
             
             // Enviar con timeout
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 15000);
+            const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 segundos timeout
             
             const response = await fetch(this.action, {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                },
                 signal: controller.signal
             });
             
@@ -343,26 +350,32 @@ function initForm() {
             
             console.log('📨 Respuesta recibida:', {
                 status: response.status,
-                ok: response.ok
+                ok: response.ok,
+                headers: Object.fromEntries(response.headers)
             });
             
             if (response.ok) {
-                const result = await response.text();
-                if (result.trim() === 'OK') {
-                    showAlert('✅ ¡Preinscripción enviada con éxito! Te contactaremos pronto.', 'success', formAlert);
-                    form.reset();
-                    console.log('✅ Formulario enviado correctamente');
-                    
-                    // Scroll a la sección de preinscripción
-                    document.getElementById('preinscripcion').scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'center' 
-                    });
-                } else {
-                    throw new Error('Error en el servidor: ' + result);
-                }
+                // ÉXITO
+                showAlert('✅ ¡Preinscripción enviada con éxito! Te contactaremos pronto.', 'success', formAlert);
+                form.reset();
+                console.log('✅ Formulario enviado correctamente');
+                
+                // Scroll a la sección de preinscripción para que vean el mensaje
+                document.getElementById('preinscripcion').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+                
             } else {
-                throw new Error(`Error HTTP: ${response.status}`);
+                // Error del servidor
+                const errorText = await response.text();
+                console.error('❌ Error del servidor:', {
+                    status: response.status,
+                    statusText: response.statusText,
+                    body: errorText
+                });
+                
+                throw new Error(`Error del servidor: ${response.status} - ${response.statusText}`);
             }
             
         } catch (error) {

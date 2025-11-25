@@ -152,6 +152,12 @@
                 <img src="assets/windows.png" alt="Conceptos de redes e internet" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22400%22 viewBox=%220 0 800 400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%230078D4%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Redes e Internet</text></svg>'">
             </div>
         </div>
+        <!-- <div class="video-container">
+            <h3>📹 Video Demostrativo - Manejo de Windows</h3>
+            <div class="video-wrapper">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/8fTHNCNsEwY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div> -->
     </section>
 
     <section id="word">
@@ -322,7 +328,12 @@
         </div>
         <div class="form-container">
             <div id="form-alert"></div>
-            <form id="preinscripcion-form" action="enviar.php" method="POST">
+                <form id="preinscripcion-form" action="https://formsubmit.co/alumnocejainfo@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Nueva Preinscripción - CEJA Villa Quinteros">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="#preinscripcion"> <!-- Usa el hash de tu sección -->
+                
                 <div class="form-group">
                     <label for="nombre">Nombre Completo</label>
                     <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingresa tu nombre completo" required>
@@ -343,11 +354,13 @@
                     <input type="text" id="dni" name="dni" class="form-control" placeholder="Número de documento" required>
                 </div>
                 
+                <!-- Nuevo campo: Dirección -->
                 <div class="form-group">
                     <label for="direccion">Dirección</label>
                     <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección y localidad donde resides" required>
                 </div>
                 
+                <!-- Nuevo campo: Nivel Educativo -->
                 <div class="form-group">
                     <label for="nivel_educativo">Nivel Educativo</label>
                     <select id="nivel_educativo" name="nivel_educativo" class="form-control" required>
